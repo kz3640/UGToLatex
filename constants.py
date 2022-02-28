@@ -1,0 +1,8 @@
+BEGINVERSE = "\\beginverse\\MultiwordChords"
+ENDVERSE = "\\endverse"
+BEGINNOLYRICS = "{\\nolyrics "
+ENDNOLYRICS = "}"
+SC = "\\["
+EC = "]"
+FLAT = "${^\\flat}$"
+SHARP = "${^\\sharp}$"
