@@ -1,8 +1,11 @@
 import constants
+import sys
 
-def main():
+def main(name, inp, out):
     lines = []
-    with open('Perfect-Ed-Sheeran.raw') as f:
+    w = open(out, "a")
+    w.write(constants.HEADER)
+    with open(inp) as f:
         for l in f:
             lines.append(l)
     lines = rmJunk(lines)
@@ -10,8 +13,12 @@ def main():
     while i != len(lines):
         if whatIsThis(lines[i]) == 2:
             if (i != len(lines)-1):
-                print(combine(lines[i] , lines[i+1]))
+                if whatIsThis(lines[i+1] == 3)
+                    print(combine(lines[i] , lines[i+1]))
+                    w.write(combine(lines[i], lines[i+1]))
+                    w.write("\n")
         i+=1
+    w.write(constants.FOOTER)
     return
 
 def rmJunk(lines):
@@ -31,6 +38,10 @@ def combine(chords, lyrics):
     chords = chords + ' '
     i = len(chords)
     while i != 0:
+        if chords[i-1:i] == 'b':
+            chords = chords[0:i-1] + constants.FLAT + chords[i:]
+        if chords[i-1:i] == '\#':
+            chords = chords[0:i-1] + constants.SHARP + chords[i:]
         if (chords[i-1:i] == 'A' or
             chords[i-1:i] == 'B' or
             chords[i-1:i] == 'C' or
@@ -60,4 +71,4 @@ def whatIsThis(line):
     return 3
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1], sys.argv[2], sys.argv[3])
