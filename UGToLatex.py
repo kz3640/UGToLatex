@@ -64,8 +64,8 @@ def combine(chords, lyrics):
     chords = chords + ' '           #add a space to the end of chords
                                     #to search for eventually
 
-    s = "\\["                       #enclose chord in tex
-    e = "]"
+    s = constants.SC                #enclose chord in tex
+    e = constants.EC
 
     i = len(chords)                 #loop counter
     while i != 0:                   #loop thorugh all indexes, backwards
